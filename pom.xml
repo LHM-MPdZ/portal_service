@@ -8,8 +8,8 @@
 		<version>2.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>de.muenchen</groupId>
-	<artifactId>demo-service-mpdz</artifactId>
+	<groupId>de.muenchen.mpdz</groupId>
+	<artifactId>demo-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo-service-mpdz</name>
 	<description>Demo project for Spring Boot</description>
