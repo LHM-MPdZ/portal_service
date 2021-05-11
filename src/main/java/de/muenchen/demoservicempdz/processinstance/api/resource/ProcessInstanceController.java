@@ -31,14 +31,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProcessInstanceController {
 
-    private final ProcessInstanceService taskService;
-    private final ProcessInstanceApiMapper taskApiMapper;
+    private final ProcessInstanceService processInstanceService;
+    private final ProcessInstanceApiMapper processInstanceApiMapper;
     private final UserAuthentication userAuthentication;
 
     @GetMapping
-    public ResponseEntity<List<ProcessInstanceInfoTO>> getAllTasks() {
-        val processInstance = this.taskService.getAllProcessInstances(this.userAuthentication.getLoggedInUser());
-        return ResponseEntity.ok(this.taskApiMapper.map(processInstance));
+    public ResponseEntity<List<ProcessInstanceInfoTO>> getAllProcessInstances() {
+        val processInstance = this.processInstanceService.getAllProcessInstances(this.userAuthentication.getLoggedInUser());
+        return ResponseEntity.ok(this.processInstanceApiMapper.map(processInstance));
     }
 
 }

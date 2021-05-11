@@ -2,7 +2,7 @@
  * Copyright (c): it@M - Dienstleister für Informations- und Telekommunikationstechnik der Landeshauptstadt München, 2020
  */
 
-package de.muenchen.demoservicempdz.form.api.transport;
+package de.muenchen.demoservicempdz.processconfig.api.transport;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,12 +10,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Form object.
+ * Transport object of the {@link de.muenchen.demoservicempdz.processconfig.domain.model.ProcessConfig}
  *
  * @author externer.dl.horn
  */
@@ -23,33 +22,23 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FormTO {
+public class ProcessConfigTO {
 
     /**
-     * Key of the form.
+     * key of the process config.
      */
     @NotBlank
     private String key;
 
     /**
-     * description of the form.
+     * status config of the process definition.
      */
-    private String description;
-
-    /**
-     * authorized groups.
-     */
-    private String authorizedGroups;
-
-    /**
-     * Buttons of the form.
-     */
-    private ButtonsTO buttons;
-
-    /**
-     * Sections of the form including all form fields.
-     */
-    @Size(min = 1, max = 200)
     @Builder.Default
-    private List<GroupTO> groups = new ArrayList<>();
+    private List<StatusConfigTO> statusConfig = new ArrayList<>();
+
+    /**
+     * dynamic config entries.
+     */
+    @Builder.Default
+    private List<ConfigEntryTO> configs = new ArrayList<>();
 }
