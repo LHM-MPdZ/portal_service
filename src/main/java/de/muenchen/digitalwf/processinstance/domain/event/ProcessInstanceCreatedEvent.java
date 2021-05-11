@@ -26,6 +26,8 @@ public class ProcessInstanceCreatedEvent {
 
     private String assignee;
 
+    private String description;
+
     private Date startTime;
 
 }

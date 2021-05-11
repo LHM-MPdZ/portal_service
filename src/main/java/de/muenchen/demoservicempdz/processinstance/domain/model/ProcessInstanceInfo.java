@@ -25,6 +25,8 @@ public class ProcessInstanceInfo {
 
     private String statusKey;
 
+    private final String description;
+
     public void updateStatus(final String statusKey) {
         this.statusKey = statusKey;
     }

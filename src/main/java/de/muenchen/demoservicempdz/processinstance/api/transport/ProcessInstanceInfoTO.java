@@ -55,6 +55,12 @@ public class ProcessInstanceInfoTO {
     private String status;
 
     /**
+     * Description of the process instance.
+     */
+    @NotBlank
+    private String description;
+
+    /**
      * Assignee of the process instance.
      */
     @NotBlank

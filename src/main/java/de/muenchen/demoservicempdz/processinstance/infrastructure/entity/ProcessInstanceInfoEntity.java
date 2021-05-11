@@ -37,4 +37,7 @@ public class ProcessInstanceInfoEntity {
     @Column(name = "endTime_")
     private Date endTime;
 
+    @Column(name = "description_")
+    private String description;
+
 }
