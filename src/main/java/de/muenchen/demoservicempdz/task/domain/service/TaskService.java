@@ -36,6 +36,10 @@ public class TaskService {
         return this.taskInfoMapper.map(this.taskInfoRepository.findAll());
     }
 
+    public TaskInfo getTaskById(final String userId, final String taskId) {
+        return this.getTask(taskId);
+    }
+
     public List<TaskInfo> getAllTasksByProcessInstance(final String userId, final String processInstanceId) {
         return this.taskInfoMapper.map(this.taskInfoRepository.findAllByProcessInstanceId(processInstanceId));
     }
@@ -58,7 +62,7 @@ public class TaskService {
         return this.taskInfoMapper.map(savedTask);
     }
 
-    private TaskInfo getTask(final String taskId) {
+    public TaskInfo getTask(final String taskId) {
         return this.taskInfoRepository.findById(taskId)
                 .map(this.taskInfoMapper::map)
                 .orElseThrow(() -> new ObjectNotFoundException(String.format("Task with id %s not availablke")));

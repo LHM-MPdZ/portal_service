@@ -9,7 +9,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +32,6 @@ public class GroupTO {
      * Schema of the group.
      * Includes form fields.
      */
-    @Builder.Default
-    private List<FormFieldTO> schema = new ArrayList<>();
+    private List<FormFieldTO> schema;
 
 }

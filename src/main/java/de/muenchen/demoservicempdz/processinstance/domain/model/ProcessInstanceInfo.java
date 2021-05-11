@@ -23,6 +23,10 @@ public class ProcessInstanceInfo {
 
     private final Date endTime;
 
-    private final String statusKey;
+    private String statusKey;
+
+    public void updateStatus(final String statusKey) {
+        this.statusKey = statusKey;
+    }
 
 }

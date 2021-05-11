@@ -39,7 +39,7 @@ public class TaskInfoEntity {
     private String description;
 
     @Column(name = "formKey_")
-    private String formKey_;
+    private String formKey;
 
     @Column(name = "creationTime_")
     private Date creationTime;

@@ -46,7 +46,10 @@ public class FormService {
      * @return form
      */
     public Form saveForm(final Form form) {
-        val savedEntity = this.formRepository.save(this.formMapper.map2Entity(form));
+        val entity = this.formRepository.findByKey(form.getKey());
+        val newEntity = this.formMapper.map2Entity(form);
+        entity.ifPresent(formEntity -> newEntity.setId(formEntity.getId()));
+        val savedEntity = this.formRepository.save(newEntity);
         log.info("Form deployed: {}", savedEntity);
 
         return this.formMapper.map(savedEntity);

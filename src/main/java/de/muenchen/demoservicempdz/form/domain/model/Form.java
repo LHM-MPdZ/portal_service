@@ -6,7 +6,6 @@ package de.muenchen.demoservicempdz.form.domain.model;
 
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,6 +44,6 @@ public class Form {
     /**
      * Sections of the form including all form fields.
      */
-    private final List<Group> groups = new ArrayList<>();
+    private final List<Group> groups;
 
 }

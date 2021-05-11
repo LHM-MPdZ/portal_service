@@ -41,7 +41,13 @@ public class TaskController {
         return ResponseEntity.ok(this.taskApiMapper.map(tasks));
     }
 
-    @GetMapping("/{processinstanceId}")
+    @GetMapping("/{id}")
+    public ResponseEntity<TaskInfoTO> getTaskById(@PathVariable("id") final String processinstanceId) {
+        val tasks = this.taskService.getTaskById(this.userAuthentication.getLoggedInUser(), processinstanceId);
+        return ResponseEntity.ok(this.taskApiMapper.map(tasks));
+    }
+
+    @GetMapping("/processinstance/{processinstanceId}")
     public ResponseEntity<List<TaskInfoTO>> getAllTasksByProcessInstance(@PathVariable("processinstanceId") final String processinstanceId) {
         val tasks = this.taskService.getAllTasksByProcessInstance(this.userAuthentication.getLoggedInUser(), processinstanceId);
         return ResponseEntity.ok(this.taskApiMapper.map(tasks));

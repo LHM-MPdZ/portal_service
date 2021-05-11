@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,6 +49,5 @@ public class FormTO {
      * Sections of the form including all form fields.
      */
     @Size(min = 1, max = 200)
-    @Builder.Default
-    private List<GroupTO> groups = new ArrayList<>();
+    private List<GroupTO> groups;
 }

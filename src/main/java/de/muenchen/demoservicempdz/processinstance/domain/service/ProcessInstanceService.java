@@ -5,6 +5,7 @@ import de.muenchen.demoservicempdz.processinstance.domain.model.ProcessInstanceI
 import de.muenchen.demoservicempdz.processinstance.infrastructure.repository.ProcessInstanceInfoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +27,16 @@ public class ProcessInstanceService {
     }
 
     public ProcessInstanceInfo getProcessInstance(final String userId, final String processInstanceId) {
+        return this.getProcessInstance(processInstanceId);
+    }
+
+    public void updateStatus(final String statusKey, final String processInstanceId) {
+        val processInstance = this.getProcessInstance(processInstanceId);
+        processInstance.updateStatus(statusKey);
+        this.processInstanceInfoRepository.save(this.processInstanceInfoMapper.map(processInstance));
+    }
+
+    private ProcessInstanceInfo getProcessInstance(final String processInstanceId) {
         return this.processInstanceInfoMapper.map(this.processInstanceInfoRepository.findById(processInstanceId).get());
     }
 
