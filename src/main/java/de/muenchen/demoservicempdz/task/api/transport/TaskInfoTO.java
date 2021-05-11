@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -58,5 +59,20 @@ public class TaskInfoTO {
      * Data of the task.
      */
     private Map<String, String> data;
+
+    /**
+     * Description of the task.
+     */
+    private String description;
+
+    /**
+     * Key of the corresponding form.
+     */
+    private String formKey;
+
+    /**
+     * Creation time of the task.
+     */
+    private Date creationTime;
 
 }

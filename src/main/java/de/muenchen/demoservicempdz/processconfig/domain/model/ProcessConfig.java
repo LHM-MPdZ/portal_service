@@ -28,11 +28,6 @@ public class ProcessConfig {
     private String key;
 
     /**
-     * default status dokument.
-     */
-    private String statusDokument;
-
-    /**
      * status config of the process definition.
      */
     @Builder.Default

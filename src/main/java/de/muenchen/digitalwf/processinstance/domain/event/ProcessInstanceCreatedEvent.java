@@ -22,6 +22,8 @@ public class ProcessInstanceCreatedEvent {
 
     private String processName;
 
+    private String statusKey;
+
     private String assignee;
 
     private Date startTime;

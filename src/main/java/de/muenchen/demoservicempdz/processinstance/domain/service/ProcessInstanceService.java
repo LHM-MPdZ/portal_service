@@ -25,4 +25,8 @@ public class ProcessInstanceService {
         return this.processInstanceInfoMapper.map(this.processInstanceInfoRepository.findAll());
     }
 
+    public ProcessInstanceInfo getProcessInstance(final String userId, final String processInstanceId) {
+        return this.processInstanceInfoMapper.map(this.processInstanceInfoRepository.findById(processInstanceId).get());
+    }
+
 }

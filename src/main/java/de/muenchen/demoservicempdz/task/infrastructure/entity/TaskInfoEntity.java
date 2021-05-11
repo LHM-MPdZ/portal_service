@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -33,5 +34,14 @@ public class TaskInfoEntity {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "task_id_")
     private List<TaskInfoDataEntity> data;
+
+    @Column(name = "description_")
+    private String description;
+
+    @Column(name = "formKey_")
+    private String formKey_;
+
+    @Column(name = "creationTime_")
+    private Date creationTime;
 
 }

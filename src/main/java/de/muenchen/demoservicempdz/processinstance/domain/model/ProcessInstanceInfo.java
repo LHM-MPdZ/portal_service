@@ -23,4 +23,6 @@ public class ProcessInstanceInfo {
 
     private final Date endTime;
 
+    private final String statusKey;
+
 }

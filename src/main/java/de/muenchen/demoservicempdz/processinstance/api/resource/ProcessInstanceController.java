@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,6 +39,12 @@ public class ProcessInstanceController {
     @GetMapping
     public ResponseEntity<List<ProcessInstanceInfoTO>> getAllProcessInstances() {
         val processInstance = this.processInstanceService.getAllProcessInstances(this.userAuthentication.getLoggedInUser());
+        return ResponseEntity.ok(this.processInstanceApiMapper.map(processInstance));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProcessInstanceInfoTO> getProcessInstance(@PathVariable("id") final String processInstanceId) {
+        val processInstance = this.processInstanceService.getProcessInstance(this.userAuthentication.getLoggedInUser(), processInstanceId);
         return ResponseEntity.ok(this.processInstanceApiMapper.map(processInstance));
     }
 

@@ -28,6 +28,9 @@ public class ProcessInstanceInfoEntity {
     @Column(name = "assignee_")
     private String assignee;
 
+    @Column(name = "statusKey_")
+    private String statusKey;
+
     @Column(name = "startTime_")
     private Date startTime;
 
